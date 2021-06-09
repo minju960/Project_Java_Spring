@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="layout/layout">
+<head>
+  <title>BMI PAGE</title>
+  <meta name="keywords" content="springboot,thymeleaf,layout,トップページ" />
+  <meta name="description" content="SpringBootとThymeleafのLayoutを使ってWebサイトを作るサンプルです。ここはトップページです。" />
+<style>
+	.card {
+		margin : 0 auto;
+	}
+</style>
+
+</head>
+
+<body>
+
+<div layout:fragment="content">
+
+<div align="right">
+	<a th:href="@{/user/score_list}"><button class="btn btn-primary">리스트</button></a>
+</div>
+
+<form th:action="@{/user/edit_score_result}" th:object="${studentScore}" method="post">
+
+	<div class="card border-warning mb-3" style="max-width: 18rem;">
+		<div class="card-header">학생 성적 수정</div>
+		<div class="card-body">
+			<form>
+				<div class="mb-3">
+					<label for="student_no" class="form-label">학사번호</label>
+					<input type="hidden" th:field="*{id}" readonly></input>
+					<input type="text" class="form-control" id="student_no" name="student_no" 
+					th:field="*{student_no}" placeholder="학사번호 5자리 입력" readonly>
+					<div th:if="${#fields.hasErrors('student_no')}" th:errors="*{student_no}"></div>
+					<div th:text="${student_no_exist_result}"></div>
+				</div>
+				<div class="mb-3">
+					<label for="guk" class="form-label">국어</label>
+					<input type="text" class="form-control" id="guk" name="guk"
+					placeholder="국어 성적 입력">
+					<div th:if="${#fields.hasErrors('guk')}" th:errors="*{guk}"></div>
+				</div>
+				<div class="mb-3">
+					<label for="math" class="form-label">수학</label>
+					<input type="text" class="form-control" id="math" name="math" 
+					placeholder="수학 성적 입력">
+					<div th:if="${#fields.hasErrors('math')}" th:errors="*{math}"></div>
+				</div>
+				<div class="mb-3">
+					<label for="sahee" class="form-label">사회</label>
+					<input type="text" class="form-control" id="sahee" name="sahee" 
+					placeholder="사회 성적 입력">
+					<div th:if="${#fields.hasErrors('sahee')}" th:errors="*{sahee}"></div>
+				</div>
+				<div th:text="${impossible}"></div>
+				<input type="submit" class="btn btn-primary" name="button" value="성적 등록"></input>
+			</form>
+		</div>
+	</div>
+
+</form>
+</div>
+</body>
+</html>

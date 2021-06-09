@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+  <title>BMI PAGE</title>
+  <meta name="keywords" content="springboot,thymeleaf,layout,トップページ" />
+  <meta name="description" content="SpringBootとThymeleafのLayoutを使ってWebサイトを作るサンプルです。ここはトップページです。" />
+</head>
+
+<body>
+
+<div layout:fragment="content">
+	<div class="card border-primary mb-3 bmi_card" style="max-width: 30rem;">
+	  <div class="card-header">BMI</div>
+	  <div class="card-body text-primary">
+	    <h5 class="card-title">What is your BMI?</h5>
+	    <form>
+	  <div class="form-group row">
+	    <label for="height" class="col-sm-3 col-form-label">Height(cm)</label>
+	    <div class="col-sm-10">
+	      <input type="text" class="form-control" th:value="${bmi.height}">
+	    </div>
+	  </div>
+	  <div class="form-group row">
+	    <label for="weight" class="col-sm-3 col-form-label">Weight(kg)</label>
+	    <div class="col-sm-10">
+	      <input type="text" class="form-control" th:value="${bmi.weight}" >
+	    </div>
+	  </div>
+	  </form>
+	    <p>나의 BMI는 <span th:text="${bmi.mybmi}"></span>, <span th:text="${bmi.what}"></span>입니다.</p>
+	    <input type="radio" th:checked="${bmi.what}==저체중"> 저체중
+    	<input type="radio" th:checked="${bmi.what}==정상"> 정상
+    	<input type="radio" th:checked="${bmi.what}==과체중"> 과체중
+    	<input type="radio" th:checked="${bmi.what}==경도비만"> 경도비만
+    	<input type="radio" th:checked="${bmi.what}==중도비만"> 중도비만
+	  </div>
+	  </div>
+</div>
+
+</body>
+</html>

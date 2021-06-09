@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org"
+      layout:decorate="layout/layout">
+<head>
+<meta charset="UTF-8">
+<title>Sign up page</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="jumbotron" style="background:#BEEFFF">
+			<h1 class="display-4">Sign up page</h1>
+			<p class="lead">회원가입이 완료되었습니다</p>
+			<h3 th:text="${hellouser}"/>
+			<hr class="my-4">
+			<p>There are my projects with various contents. Take your time and look around. Enjoy my page, Thank you!</p>
+			
+			<form th:action="@{/user/login}">
+				<button type="submit" class="btn btn-primary btn-lg">Sign in</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

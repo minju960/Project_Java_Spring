@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="layout/layout">
+<head>
+  <title>BMI PAGE</title>
+  <meta name="keywords" content="springboot,thymeleaf,layout,トップページ" />
+  <meta name="description" content="SpringBootとThymeleafのLayoutを使ってWebサイトを作るサンプルです。ここはトップページです。" />
+<style>
+	.card {
+		margin : 0 auto;
+	}
+</style>
+
+</head>
+<body>
+
+<div layout:fragment="content">
+
+	<div align="right">
+		<a th:href="@{/user/info_list}"><button class="btn btn-primary">리스트</button></a>
+	</div>
+	<form th:action="@{/user/add_info_result}" th:object="${studentInfo}" enctype="multipart/form-data" method="post">
+
+			<div class="card border-info mb-3" style="max-width: 18rem;">
+			<div class="card-header">학생 정보 등록</div>
+			<div class="card-body">
+					<div class="mb-3">
+						<label for="student_no" class="form-label">학사번호</label> 
+						<input type="text" class="form-control" th:value="*{student_no}" readonly>
+					</div>
+					<div class="mb-3">
+						<label for="name" class="form-label">성명</label> 
+						<input type="text" class="form-control" th:value="*{name}" readonly>
+					</div>
+					<div class="mb-3">
+						<label for="file" class="form-label">사진</label>
+						<span th:if="*{photo !=null}"> 
+							<img th:src="|/user/get_image/*{student_no}|" width="200px" height="200px">
+						</span>
+					</div>
+					<div class="mb-3">
+						<label for="tel" class="form-label">전화번호</label> 
+						<input type="text"class="form-control" th:value="*{tel}" readonly>
+					</div>
+			</div>
+		</div>
+
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<body>
+
+<div id="global-navbar" layout:fragment="navbar" class="clearfix">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+      <div class="container">
+        <a class="navbar-brand" href="/"><i class="fas fa-book-open fa-3x" style="color:#0078FF"></i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample07">
+          <ul class="navbar-nav mr-auto">
+          	<li class="nav-item">
+              <a class="nav-link" href="/">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">STUDY</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">TEST</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Q&A</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MJ's PROJECT</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown07">
+                <a class="dropdown-item" href="/bmi_input">BMI</a>
+                <a class="dropdown-item" href="/user/calculator_input2">Simple Calculator</a>
+                <a class="dropdown-item" href="/user/lotto_input">LOTTO GAME</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">STUDENT PAGE</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown07">
+                <a class="dropdown-item" href="/user/info_list">Info List</a>
+                <a class="dropdown-item" href="/user/score_list">Score List</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MY PAGE</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown07">
+                <a class="dropdown-item" href="#">Add Info</a>
+                <a class="dropdown-item" href="#">My Score</a>
+                <a class="dropdown-item" href="#">Sign Out</a>
+              </div>
+            </li>
+            <!-- disabled 
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+          	 -->
+          </ul>
+          <form class="form-inline my-2 my-md-0">
+            <input class="form-control my-2 my-md-0" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-primary my-2 my-md-0" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+</div>
+
+</body>
+
+</html>

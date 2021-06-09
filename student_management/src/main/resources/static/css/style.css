@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+header {
+	background-image : url(../images/mu3.jpg);
+	background-size : cover;
+	height : 170px;
+	margin-bottom : 10px;
+}
+
+.headertext {
+	margin-top : 10px;
+}
+
+.bmi_card {
+	margin : 0 auto;
+	margin-top : 50px;
+}
+
+.btn_calc {
+	width : 60px;
+}
+    	

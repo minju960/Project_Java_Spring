@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" 
+      xmlns:th="http://www.thymeleaf.org" 
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      
+<head>
+
+	<meta charset="UTF-8">
+	
+	<title layout:title-pattern="$CONTENT_TITLE | $LAYOUT_TITLE">제목</title>
+	
+	<link rel="stylesheet" media="all" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}" />
+	<link rel="stylesheet" media="all" th:href="@{/css/style.css}" />
+	<link rel="stylesheet" href="/css/style.css" />
+	<link rel="stylesheet" href="/css/all.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	
+	<style>
+		.Site {
+			display : flex;
+			min-height : 100vh;
+			flex-direction : column;
+		}
+		.Site-content {
+			flex:1;
+		}
+	</style>
+	
+
+</head>
+
+<body>
+
+	<div class="container Site">
+	
+		<div layout:replace="layout/header::header"></div>
+		
+		<div layout:replace="layout/navi::navbar"></div>
+		
+		
+		<div class="Site-content">
+			<div layout:fragment="content" th:remove="tag"></div>
+		</div>
+		
+		<div layout:replace="layout/footer::footer"></div>
+		
+	</div>
+
+	<script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/4.5.3/js/bootstrap.min.js}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+  <title>LOTTO PAGE</title>
+  <meta name="keywords" content="springboot,thymeleaf,layout,トップページ" />
+  <meta name="description" content="SpringBootとThymeleafのLayoutを使ってWebサイトを作るサンプルです。ここはトップページです。" />
+<style>
+
+	 .step {
+            background: skyblue;
+            border-radius: 2em;
+            -moz-border-radius: 2em;
+            -webkit-border-radius: 2em;
+            color: white;
+            display: inline-block;
+            font-weight: bold;
+            line-height: 3em;
+            margin-right: 5px;
+            text-align: center;
+            width: 3em;
+        }
+     
+     .box {
+     	border : 5px solid pink;
+     	border-radius: 1.5em;
+       	-moz-border-radius: 1.5em;
+        -webkit-border-radius: 1.5em;
+     	padding : 50px;
+     	margin : 0 auto;
+     	width : 600px;
+     }
+     
+     .btn_calc {
+     	 margin-top: 20px;
+     	 width : 200px;
+     }
+     
+</style>
+</head>
+<body>
+<div layout:fragment="content">
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills">
+      <li class="nav-item">
+        <a class="nav-link active" href="/user/lotto_input">LOTTO번호 받아보기</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/user/lotto_input_2">LOTTO번호 맞춰보기</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h1 class="card-title">LOTTO</h1>
+    <p class="card-text">행운의 LOTTO번호를 받아보세요!</p>
+   
+    <form th:action="@{/user/lotto_result}" method="post">
+			<div class="box">
+				<span class="step">?</span>
+			    <span class="step">?</span>
+			    <span class="step">?</span>
+			    <span class="step">?</span>
+			    <span class="step">?</span>
+			    <span class="step">?</span>
+			    <span>+</span>
+			    <span class="step">?</span>
+		    </div>
+			<button type="submit" class="btn_calc btn btn-outline-primary">1등 번호 받아보기</button>
+	</form>
+  </div>
+</div>
+
+
+</div>
+</body>
+</html>

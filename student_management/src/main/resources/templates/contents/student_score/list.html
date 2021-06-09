@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="layout/layout">
+<head>
+	<title>BMI PAGE</title>
+	<meta name="keywords" content="springboot,thymeleaf,layout,トップページ" />
+	<meta name="description" content="SpringBootとThymeleafのLayoutを使ってWebサイトを作るサンプルです。ここはトップページです。" />
+	<style>
+		.box {
+		margin : 0 auto;
+		margin-top : 30px;
+		width : 50vw;
+		height : 50vw;
+		}
+	</style>
+</head>
+
+<body>
+<div layout:fragment="content">
+<div class="box">
+	<table class="table table-hover">
+	
+	<h1 align="center">학생 성적 관리</h1>
+	
+	<div align="right">
+		<a href="/user/add_score"><button class="btn btn-primary" >성적 추가</button></a>
+		<a href="/user/score_list"><button class="btn btn-primary" >새로고침</button></a>
+	</div>
+	
+        <tr>
+        	<th>id</th>
+            <th>학사번호</th>
+            <th>국어</th>
+            <th>수학</th>
+            <th>사회</th>
+            <th>총점</th>
+            <th>평균</th>
+            <th>관리</th>
+        </tr>
+        <tr th:each="studentscore : ${totalaverageList}">
+        	<td th:text="${studentscore.id}"></td>
+            <td th:text="${studentscore.student_no}"></td>
+            <td th:text="${studentscore.guk}"></td>
+            <td th:text="${studentscore.math}"></td>
+            <td th:text="${studentscore.sahee}"></td>
+            <td th:text="${studentscore.total}"></td>
+            <td th:text="${studentscore.average}"></td>
+            <td>
+            	<a th:href = "|/user/edit_score/${studentscore.id}/${studentscore.student_no}|"><button class="btn btn-primary">수 정</button></a>
+            	<a th:href = "|/user/delete_score/${studentscore.id}|"><button class="btn btn-primary">삭 제</button></a>
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
+</body>
+</html>

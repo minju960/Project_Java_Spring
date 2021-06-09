@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org" 
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="layout/layout">
+<head>
+<meta charset="UTF-8">
+<title>Sign up page</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="jumbotron" style="background:#BEEFFF">
+			<h1 class="display-4">Hello, Welcome to MINJU SCHOOL!</h1>
+			<p class="lead">안녕하세요, MINJU SCHOOL에 오신 것을 환영합니다!</p>
+			<h3 th:text="${hellouser}"/>
+			<hr class="my-4">
+			<p>There are my projects with various contents. Take your time and look around. Enjoy my page, Thank you!</p>
+			
+			<form th:action="@{/user/logout}">
+				<span sec:authorize="hasRole('ROLE_ADMIN')">
+					<button type="submit" class="btn btn-primary btn-lg">ADMIN logout</button>
+				</span>
+				<span sec:authorize="hasRole('ROLE_USER')">
+					<button type="submit" class="btn btn-primary btn-lg">USER logout</button>
+				</span>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

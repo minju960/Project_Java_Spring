@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+  <title>LOTTO PAGE</title>
+  <meta name="keywords" content="springboot,thymeleaf,layout,トップページ" />
+  <meta name="description" content="SpringBootとThymeleafのLayoutを使ってWebサイトを作るサンプルです。ここはトップページです。" />
+<style>
+
+		
+		.step {
+			background: skyblue;
+			border-radius: 2em;
+			-moz-border-radius: 2em;
+			-webkit-border-radius: 2em;
+			color: white;
+			display: inline-block;
+			font-weight: bold;
+			line-height: 3em;
+			margin-right: 5px;
+			text-align: center;
+			width: 3em;
+		}
+		
+		.box {
+			border: 5px solid pink;
+			border-radius: 1.5em;
+			-moz-border-radius: 1.5em;
+			-webkit-border-radius: 1.5em;
+			padding: 50px;
+			margin: 0 auto;
+			width: 600px;
+		}
+		
+		.btn_calc {
+     	 margin-top: 20px;
+     	 width : 250px;
+     	}
+     	
+    	.my_number {
+         	border: 5px solid pink;
+		 	border-radius: 1.5em;
+			-moz-border-radius: 1.5em;
+			-webkit-border-radius: 1.5em;
+			margin: 20px auto;
+			width: 500px;
+			height : 50px;
+     	}
+     	
+     	.input_num {
+     	margin-top: 5px;
+     	width:40px;
+     	}
+</style>
+</head>
+<body>
+<div layout:fragment="content">
+
+	<div class="card text-center">
+	  <div class="card-header">
+	    <ul class="nav nav-pills card-header-pills">
+	      <li class="nav-item">
+	        <a class="nav-link" href="/user/lotto_input">LOTTO번호 받아보기</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link active" href="/user/lotto_input_2">LOTTO번호 맞춰보기</a>
+	      </li>
+	    </ul>
+	  </div>
+	  <div class="card-body">
+	    <h1 class="card-title">LOTTO</h1>
+	    <p class="card-text">당신의 LOTTO번호를 맞춰보세요!</p>
+	   
+	    	<div class="box">
+				<span class="step" th:text="${lottoList[0]}">
+				</span> 
+				<span class="step" th:text="${lottoList[1]}">
+				</span> 
+				<span class="step" th:text="${lottoList[2]}">
+				</span> 
+				<span class="step" th:text="${lottoList[3]}">
+				</span> 
+				<span class="step" th:text="${lottoList[4]}">
+				</span> 
+				<span class="step" th:text="${lottoList[5]}">
+				</span> 
+				<span>+</span>
+			    <span class="step" th:text="${lottoList[6]}">
+				</span> 
+			</div>
+			
+			<div class="my_number">
+				<input type="text" class="input_num" th:value="${number_1}">
+	            <input type="text" class="input_num" th:value="${number_2}">
+	            <input type="text" class="input_num" th:value="${number_3}">
+	            <input type="text" class="input_num" th:value="${number_4}">
+	            <input type="text" class="input_num" th:value="${number_5}">
+	            <input type="text" class="input_num" th:value="${number_6}">
+	        </div>
+	        
+			<button type="text" th:utext="${s}" class="btn_calc btn btn-outline-primary"></button>
+		</div>
+	
+	
+  </div>
+
+
+
+
+		
+</div>
+
+</body>
+</html>

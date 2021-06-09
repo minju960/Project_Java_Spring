@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+  <title>TOP PAGE</title>
+  <meta name="keywords" content="springboot,thymeleaf,layout,トップページ" />
+  <meta name="description" content="SpringBootとThymeleafのLayoutを使ってWebサイトを作るサンプルです。ここはトップページです。" />
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<div class="jumbotron" style="background:#BEEFFF">
+			<h1 class="display-4">Hello, Welcome to MINJU SCHOOL!</h1>
+			<p class="lead">안녕하세요, MINJU SCHOOL에 오신 것을 환영합니다!</p>
+			<hr class="my-4">
+			<p>There are my projects with various contents. Take your time and look around. Enjoy my page, Thank you!</p>
+			<a class="btn btn-primary btn-lg" href="#" role="button">Let's See</a>
+		</div>
+	</div>
+</body>
+</html>

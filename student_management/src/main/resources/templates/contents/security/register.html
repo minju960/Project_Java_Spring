@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org"
+      layout:decorate="layout/layout">
+<head>
+<meta charset="UTF-8">
+<title>Sign up page</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="jumbotron" style="background:#BEEFFF">
+			<h1 class="display-4">Sign up</h1>
+			<p class="lead">회원가입을 해주세요.</p>
+			<hr class="my-4">
+			<form th:action="@{/user/register}" method="post">
+			<table>
+				<tr>
+					<td>User Name</td>
+					<td>
+						<input type="text" name="username" id="username">
+					</td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td>
+						<input type="text" name="password" id="password">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="submit" class="btn btn-primary btn-lg" value="Sign Up">
+					</td>
+				</tr>
+			</table>
+		</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org"
+      layout:decorate="layout/layout">
+<head>
+<meta charset="UTF-8">
+<title>Home page</title>
+<style>
+	.btn_logout {
+		display : flex;
+		flex-direction : row;
+		justify-content : space-around;
+		width : 200px;
+	}
+</style>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="jumbotron" style="background:#BEEFFF">
+			<h1 class="display-4">Check</h1>
+			<p class="lead">정말로 로그아웃 하시겠습니까?</p>
+			<hr class="my-4">
+			<div class="btn_logout">
+				<form th:action="@{/user/logout_result}" method="post">
+					<input type="submit" class="btn btn-primary btn-lg" value="Yes">
+				</form>
+				<form action="/">
+					<input type="submit" class="btn btn-primary btn-lg" value="No">
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

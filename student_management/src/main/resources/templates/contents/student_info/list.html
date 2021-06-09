@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="layout/layout">
+<head>
+	<title>BMI PAGE</title>
+	<meta name="keywords" content="springboot,thymeleaf,layout,トップページ" />
+	<meta name="description" content="SpringBootとThymeleafのLayoutを使ってWebサイトを作るサンプルです。ここはトップページです。" />
+	
+	<style>
+		.box {
+		margin : 0 auto;
+		margin-top : 30px;
+		width : 50vw;
+		height : 50vw;
+		}
+	</style>
+</head>
+<body>
+
+<div layout:fragment="content">
+<div class="box">
+	<table class="table table-hover">
+		<h1 align="center">학생 정보 관리</h1>
+
+			<div align="right">
+				<a href = "/user/add_info"><button class="btn btn-primary">정보 추가</button></a>
+				<a href="/user/info_list"><button class="btn btn-primary" >새로고침</button></a>
+			</div>
+		
+		
+		
+		<form th:action="@{/user/find_info_by_student_no}" method="post">
+			학사번호 : <input type="text" name="student_no" placeholder="학사번호 5자리 입력"> <button type="submit" class="btn btn-primary">검 색</button>
+		</form>
+		
+		<tr>
+			<th>학사번호</th>
+			<th>성명</th>
+			<th>사진</th>
+			<th>전화번호</th>
+			<th>관리</th>
+		</tr>
+		<tr th:each="studentinfo:${studentinfoList}">
+			<td th:text="${studentinfo.student_no}"></td>
+			<td th:text="${studentinfo.name}"></td>
+			<td>
+			<span th:if="${studentinfo.photo !=null}"> 
+				<img width="50px" height="50px" 
+				th:src="|/user/get_image/${studentinfo.student_no}|">
+			</span> 
+			</td>
+			<td th:text="${studentinfo.tel}"></td>
+			<td>
+				<a th:href = "|/user/details/${studentinfo.student_no}|"><button class="btn btn-outline-primary">상세보기</button></a>
+				<a th:href = "|/user/edit/${studentinfo.student_no}/${studentinfo.name}|"><button class="btn btn-outline-primary">수 정</button></a>
+				<a th:href = "|/user/delete/${studentinfo.student_no}|"><button class="btn btn-outline-primary">삭 제</button></a>
+			</td>
+		</tr>
+	</table>
+</div>
+</div>
+
+</body>
+</html>

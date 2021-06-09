@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html	lang="ko"
+		xmlns:th="http://www.thymeleaf.org">
+
+
+
+	
+		<header layout:fragment="header">
+		  <div class="row headertext">
+		    <div class="col col-sm-9 col-md-9">
+		      <a href="/"><i class="fas fa-graduation-cap fa-3x">MINJU SCHOOL</i></a>
+		    </div>
+			
+		    <div class="col col-sm-3 col-md-3 text-right">
+		    
+		    <div sec:authorize="!isAuthenticated()">
+		    	<a href="/user/register" title="Sign Up"><i class="fas fa-user-plus fa-2x fa-border" style="color:#0078FF; width:200px; text-align:center"> Sign Up</i></a>
+		   		<a href="/user/login" title="Sign In"><i class="fas fa-sign-in-alt fa-2x fa-border" style="color:#0078FF; width:200px; text-align:center"> Sign In</i></a>
+			</div>
+	    	
+	    	
+		    	<form th:action="@{/user/logout}">
+					<span sec:authorize="hasRole('ROLE_ADMIN')">
+						<p type="text" class="fas fa-user-check fa-border" style="color:#0078FF; width:200px; text-align:center"> Admin [[${#httpServletRequest.remoteUser}]]</p>
+						<button type="submit" class="fas fa-sign-out-alt fa-2x fa-border" style="color:#0078FF; width:200px; text-align:center; background-color:white"> logout</button>
+					</span>
+					<span sec:authorize="hasRole('ROLE_USER')">
+						<p type="text" class="fas fa-user-check fa-border" style="color:#0078FF; width:200px; text-align:center"> User [[${#httpServletRequest.remoteUser}]]</p>
+						<button type="submit" class="fas fa-sign-out-alt fa-2x fa-border" style="color:#0078FF; width:200px; text-align:center; background-color:white"> logout</button>
+					</span>
+				</form>
+			
+				
+		    </div>
+		  </div>
+		</header>
+	
+
+
+</html>
